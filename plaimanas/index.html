@@ -9,12 +9,37 @@
       content="PLAIMANAS — Premium Women's Fashion Collections"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Hanken+Grotesk:400;700;900"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Reusable SVG icon definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol id="icon-arrow-right" viewBox="0 0 85 85">
+        <path
+          d="M14.1666 38.9584V46.0417H56.6666V53.125H63.7499V46.0417H70.8333V38.9584H63.7499V31.875H56.6666V38.9584H14.1666ZM49.5833 24.7917H56.6666V31.875H49.5833V24.7917ZM49.5833 24.7917H42.4999V17.7084H49.5833V24.7917ZM49.5833 60.2084H56.6666V53.125H49.5833V60.2084ZM49.5833 60.2084H42.4999V67.2917H49.5833V60.2084Z"
+          fill="white"
+        />
+      </symbol>
+      <symbol id="icon-arrow-left" viewBox="0 0 85 85">
+        <path
+          d="M70.8332 38.9584V46.0417H28.3332V53.125H21.2498V46.0417H14.1665V38.9584H21.2498V31.875H28.3332V38.9584H70.8332ZM35.4165 24.7917H28.3332V31.875H35.4165V24.7917ZM35.4165 24.7917H42.4998V17.7084H35.4165V24.7917ZM35.4165 60.2084H28.3332V53.125H35.4165V60.2084ZM35.4165 60.2084H42.4998V67.2917H35.4165V60.2084Z"
+          fill="white"
+        />
+      </symbol>
+      <symbol
+        id="icon-chevron-down"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </symbol>
+    </svg>
+
     <div class="page-container">
       <header class="header" id="header">
         <div class="header-left">
@@ -63,19 +88,13 @@
 
         <div class="header-right">
           <button class="sign-in-button">SIGN IN</button>
-          <svg
+          <img
             class="shopping-bag"
+            src="assets/elements/cart.svg"
+            alt="Cart"
             width="17"
             height="17"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <path d="M16 10a4 4 0 0 1-8 0"></path>
-          </svg>
+          />
         </div>
       </header>
 
@@ -83,99 +102,19 @@
       <div class="logo-wrapper" id="logoWrapper">
         <div class="logo-container" id="logoContainer">
           <!-- Full Logo -->
-          <svg
+          <img
             id="mainLogo"
             class="site-logo active"
-            viewBox="0 0 1402 215"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g>
-              <path
-                d="M1360.37 171.887C1360.37 168.664 1358.96 166.087 1356.12 164.153C1353.29 162.091 1348.65 160.609 1342.2 159.707L1317.45 156.033C1298.38 153.069 1284.46 148.107 1275.69 141.147C1267.06 134.187 1262.74 124.649 1262.74 112.533C1262.74 99.1289 1268.8 88.6889 1280.91 81.2133C1293.16 73.7378 1309.98 70 1331.37 70C1370.94 70 1393.11 83.8556 1397.88 111.567L1358.25 115.433C1356.19 109.762 1352.96 105.702 1348.58 103.253C1344.2 100.676 1338.01 99.3867 1330.02 99.3867C1321.51 99.3867 1314.94 100.418 1310.3 102.48C1305.79 104.542 1303.53 107.507 1303.53 111.373C1303.53 114.596 1304.76 117.044 1307.21 118.72C1309.66 120.396 1314.17 121.749 1320.74 122.78L1350.9 127.613C1368.82 130.449 1381.77 135.282 1389.76 142.113C1397.75 148.816 1401.75 158.289 1401.75 170.533C1401.75 185.227 1395.82 196.311 1383.96 203.787C1372.1 211.262 1354.64 215 1331.57 215C1286.2 215 1262.03 198.889 1259.07 166.667H1300.05C1302.5 179.298 1313.07 185.613 1331.76 185.613C1350.84 185.613 1360.37 181.038 1360.37 171.887Z"
-                fill="white"
-              />
-              <path
-                d="M1125.74 211.52H1083.4L1143.34 73.4801H1192.06L1251.99 211.52H1208.68L1198.44 186.387H1135.41L1125.74 211.52ZM1167.12 104.993L1147.4 155.453H1186.84L1167.12 104.993Z"
-                fill="white"
-              />
-              <path
-                d="M920.223 73.4801H957.343L1026.36 156.42V73.4801H1065.8V211.52H1028.68L959.663 128.58V211.52H920.223V73.4801Z"
-                fill="white"
-              />
-              <path
-                d="M776.46 211.52H734.12L794.053 73.4801H842.773L902.707 211.52H859.4L849.153 186.387H786.127L776.46 211.52ZM817.833 104.993L798.113 155.453H837.553L817.833 104.993Z"
-                fill="white"
-              />
-              <path
-                d="M539.975 73.4801H587.148L628.715 166.86L670.088 73.4801H716.295V211.52H678.015V131.093L643.021 211.52H612.475L577.675 131.48V211.52H539.975V73.4801Z"
-                fill="white"
-              />
-              <path
-                d="M466.908 73.4801H508.668V211.52H466.908V73.4801Z"
-                fill="white"
-              />
-              <path
-                d="M323.146 211.52H280.806L340.739 73.4801H389.459L449.392 211.52H406.086L395.839 186.387H332.812L323.146 211.52ZM364.519 104.993L344.799 155.453H384.239L364.519 104.993Z"
-                fill="white"
-              />
-              <path
-                d="M154.063 73.4801H195.823V177.687H274.316L270.063 211.52H154.063V73.4801Z"
-                fill="white"
-              />
-              <path
-                d="M0 73.4801H68.6333C110.007 73.4801 130.693 89.3979 130.693 121.233C130.693 137.602 125.344 149.718 114.647 157.58C104.078 165.313 87.9667 169.18 66.3133 169.18H40.4067V211.52H0V73.4801ZM90.0933 121.04C90.0933 115.111 88.16 110.858 84.2933 108.28C80.4267 105.702 74.3044 104.413 65.9267 104.413H40.4067V138.247H65.54C73.9178 138.247 80.1044 136.958 84.1 134.38C88.0956 131.802 90.0933 127.356 90.0933 121.04Z"
-                fill="white"
-              />
-            </g>
-          </svg>
+            src="assets/elements/mainlogo.svg"
+            alt="PLAIMANAS"
+          />
           <!-- Sub Logo -->
-          <svg
+          <img
             id="subLogo"
             class="site-logo"
-            viewBox="0 0 1402 215"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g>
-              <path
-                d="M846.419 92.4853C846.419 91.7742 846.106 91.2053 845.48 90.7787C844.854 90.3236 843.83 89.9964 842.408 89.7973L836.947 88.9867C832.737 88.3324 829.665 87.2373 827.731 85.7013C825.825 84.1653 824.872 82.0604 824.872 79.3867C824.872 76.4284 826.209 74.1244 828.883 72.4747C831.585 70.8249 835.297 70 840.019 70C848.751 70 853.644 73.0578 854.696 79.1733L845.95 80.0267C845.494 78.7751 844.783 77.8791 843.816 77.3387C842.849 76.7698 841.484 76.4853 839.72 76.4853C837.843 76.4853 836.392 76.7129 835.368 77.168C834.373 77.6231 833.875 78.2773 833.875 79.1307C833.875 79.8418 834.145 80.3822 834.686 80.752C835.226 81.1218 836.222 81.4204 837.672 81.648L844.328 82.7147C848.282 83.3404 851.141 84.4071 852.904 85.9147C854.668 87.3938 855.55 89.4844 855.55 92.1867C855.55 95.4293 854.241 97.8756 851.624 99.5253C849.007 101.175 845.153 102 840.062 102C830.049 102 824.716 98.4444 824.062 91.3333H833.107C833.647 94.1209 835.98 95.5147 840.104 95.5147C844.314 95.5147 846.419 94.5049 846.419 92.4853Z"
-                fill="white"
-              />
-              <path
-                d="M794.638 101.232H785.294L798.521 70.768H809.273L822.5 101.232H812.942L810.681 95.6853H796.772L794.638 101.232ZM803.769 77.7227L799.417 88.8587H808.121L803.769 77.7227Z"
-                fill="white"
-              />
-              <path
-                d="M749.282 70.768H757.474L772.706 89.072V70.768H781.41V101.232H773.218L757.986 82.928V101.232H749.282V70.768Z"
-                fill="white"
-              />
-              <path
-                d="M717.555 101.232H708.211L721.438 70.768H732.19L745.416 101.232H735.859L733.598 95.6853H719.688L717.555 101.232ZM726.686 77.7227L722.334 88.8587H731.038L726.686 77.7227Z"
-                fill="white"
-              />
-              <path
-                d="M665.365 70.768H675.776L684.949 91.376L694.08 70.768H704.277V101.232H695.829V83.4827L688.107 101.232H681.365L673.685 83.568V101.232H665.365V70.768Z"
-                fill="white"
-              />
-              <path
-                d="M649.24 70.768H658.456V101.232H649.24V70.768Z"
-                fill="white"
-              />
-              <path
-                d="M617.513 101.232H608.169L621.396 70.768H632.148L645.374 101.232H635.817L633.556 95.6853H619.646L617.513 101.232ZM626.644 77.7227L622.292 88.8587H630.996L626.644 77.7227Z"
-                fill="white"
-              />
-              <path
-                d="M580.198 70.768H589.414V93.7653H606.737L605.798 101.232H580.198V70.768Z"
-                fill="white"
-              />
-              <path
-                d="M546.198 70.768H561.345C570.476 70.768 575.041 74.2809 575.041 81.3067C575.041 84.9191 573.86 87.5929 571.5 89.328C569.167 91.0347 565.612 91.888 560.833 91.888H555.116V101.232H546.198V70.768ZM566.081 81.264C566.081 79.9556 565.654 79.0169 564.801 78.448C563.948 77.8791 562.596 77.5947 560.748 77.5947H555.116V85.0613H560.662C562.511 85.0613 563.876 84.7769 564.758 84.208C565.64 83.6391 566.081 82.6578 566.081 81.264Z"
-                fill="white"
-              />
-            </g>
-          </svg>
+            src="assets/elements/sublogo.svg"
+            alt="PLAIMANAS"
+          />
         </div>
       </div>
 
@@ -191,7 +130,7 @@
         <div class="product-media-container">
           <img
             class="product-media"
-            src="assets/images/title.jpg"
+            src="assets/images/new-collection.jpg"
             alt="New Collection"
           />
           <div class="product-title-track">
@@ -239,7 +178,7 @@
           <div class="collection-hover-media">
             <video muted loop playsinline>
               <source
-                src="assets/videos/hover-collection01.mp4"
+                src="assets/videos/hover-collection.mp4"
                 type="video/mp4"
               />
             </video>
@@ -268,112 +207,56 @@
       <section class="carousel-section">
         <div class="carousel-track">
           <div class="carousel-content">
-            <span class="carousel-text">NEW ARRIVAL</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M14.1666 38.9584V46.0417H56.6666V53.125H63.7499V46.0417H70.8333V38.9584H63.7499V31.875H56.6666V38.9584H14.1666ZM49.5833 24.7917H56.6666V31.875H49.5833V24.7917ZM49.5833 24.7917H42.4999V17.7084H49.5833V24.7917ZM49.5833 60.2084H56.6666V53.125H49.5833V60.2084ZM49.5833 60.2084H42.4999V67.2917H49.5833V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/left-arrow.svg"
+              alt="←"
+            />
             <span class="carousel-text">BEST SELLING</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M70.8332 38.9584V46.0417H28.3332V53.125H21.2498V46.0417H14.1665V38.9584H21.2498V31.875H28.3332V38.9584H70.8332ZM35.4165 24.7917H28.3332V31.875H35.4165V24.7917ZM35.4165 24.7917H42.4998V17.7084H35.4165V24.7917ZM35.4165 60.2084H28.3332V53.125H35.4165V60.2084ZM35.4165 60.2084H42.4998V67.2917H35.4165V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/right-arrow.svg"
+              alt="→"
+            />
             <span class="carousel-text">NEW ARRIVAL</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M14.1666 38.9584V46.0417H56.6666V53.125H63.7499V46.0417H70.8333V38.9584H63.7499V31.875H56.6666V38.9584H14.1666ZM49.5833 24.7917H56.6666V31.875H49.5833V24.7917ZM49.5833 24.7917H42.4999V17.7084H49.5833V24.7917ZM49.5833 60.2084H56.6666V53.125H49.5833V60.2084ZM49.5833 60.2084H42.4999V67.2917H49.5833V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/left-arrow.svg"
+              alt="←"
+            />
             <span class="carousel-text">BEST SELLING</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M70.8332 38.9584V46.0417H28.3332V53.125H21.2498V46.0417H14.1665V38.9584H21.2498V31.875H28.3332V38.9584H70.8332ZM35.4165 24.7917H28.3332V31.875H35.4165V24.7917ZM35.4165 24.7917H42.4998V17.7084H35.4165V24.7917ZM35.4165 60.2084H28.3332V53.125H35.4165V60.2084ZM35.4165 60.2084H42.4998V67.2917H35.4165V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/right-arrow.svg"
+              alt="→"
+            />
+            <span class="carousel-text">NEW ARRIVAL</span>
           </div>
           <div class="carousel-content">
-            <span class="carousel-text">NEW ARRIVAL</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M14.1666 38.9584V46.0417H56.6666V53.125H63.7499V46.0417H70.8333V38.9584H63.7499V31.875H56.6666V38.9584H14.1666ZM49.5833 24.7917H56.6666V31.875H49.5833V24.7917ZM49.5833 24.7917H42.4999V17.7084H49.5833V24.7917ZM49.5833 60.2084H56.6666V53.125H49.5833V60.2084ZM49.5833 60.2084H42.4999V67.2917H49.5833V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/left-arrow.svg"
+              alt="←"
+            />
             <span class="carousel-text">BEST SELLING</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M70.8332 38.9584V46.0417H28.3332V53.125H21.2498V46.0417H14.1665V38.9584H21.2498V31.875H28.3332V38.9584H70.8332ZM35.4165 24.7917H28.3332V31.875H35.4165V24.7917ZM35.4165 24.7917H42.4998V17.7084H35.4165V24.7917ZM35.4165 60.2084H28.3332V53.125H35.4165V60.2084ZM35.4165 60.2084H42.4998V67.2917H35.4165V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/right-arrow.svg"
+              alt="→"
+            />
             <span class="carousel-text">NEW ARRIVAL</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M14.1666 38.9584V46.0417H56.6666V53.125H63.7499V46.0417H70.8333V38.9584H63.7499V31.875H56.6666V38.9584H14.1666ZM49.5833 24.7917H56.6666V31.875H49.5833V24.7917ZM49.5833 24.7917H42.4999V17.7084H49.5833V24.7917ZM49.5833 60.2084H56.6666V53.125H49.5833V60.2084ZM49.5833 60.2084H42.4999V67.2917H49.5833V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/left-arrow.svg"
+              alt="←"
+            />
             <span class="carousel-text">BEST SELLING</span>
-            <svg
+            <img
               class="carousel-arrow"
-              width="85"
-              height="85"
-              viewBox="0 0 85 85"
-              fill="none"
-            >
-              <path
-                d="M70.8332 38.9584V46.0417H28.3332V53.125H21.2498V46.0417H14.1665V38.9584H21.2498V31.875H28.3332V38.9584H70.8332ZM35.4165 24.7917H28.3332V31.875H35.4165V24.7917ZM35.4165 24.7917H42.4998V17.7084H35.4165V24.7917ZM35.4165 60.2084H28.3332V53.125H35.4165V60.2084ZM35.4165 60.2084H42.4998V67.2917H35.4165V60.2084Z"
-                fill="white"
-              />
-            </svg>
+              src="assets/elements/right-arrow.svg"
+              alt="→"
+            />
+            <span class="carousel-text">NEW ARRIVAL</span>
           </div>
         </div>
       </section>
@@ -427,44 +310,11 @@
         </div>
 
         <div class="faq-accordion">
-          <!-- ORDERS -->
-          <div class="faq-item" data-category="orders">
-            <button class="faq-question">
-              <span>HOW CAN I TRACK MY ORDER?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div class="faq-answer">
-              <p>
-                Once your order has been shipped, you will receive a
-                confirmation email with a tracking number. You can use this
-                number on our website or the courier's website to track your
-                package.
-              </p>
-            </div>
-          </div>
           <div class="faq-item" data-category="orders">
             <button class="faq-question">
               <span>CAN I MODIFY MY ORDER AFTER PLACING IT?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -478,16 +328,8 @@
           <div class="faq-item" data-category="orders">
             <button class="faq-question">
               <span>WHAT PAYMENT METHODS DO YOU ACCEPT?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -499,20 +341,26 @@
             </div>
           </div>
 
-          <!-- SHIPPING -->
           <div class="faq-item" data-category="shipping">
             <button class="faq-question">
-              <span>HOW LONG DOES SHIPPING TAKE?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <span>DO YOU OFFER INTERNATIONAL SHIPPING?</span>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Items can be returned within 14 days of receipt, provided they
+                are unworn, unwashed, and in original condition with tags
+                attached.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-category="shipping">
+            <button class="faq-question">
+              <span>HOW LONG DOES DELIVERY TAKE?</span>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -524,23 +372,16 @@
           </div>
           <div class="faq-item" data-category="shipping">
             <button class="faq-question">
-              <span>DO YOU SHIP INTERNATIONALLY?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <span>HOW CAN I TRACK MY ORDER?</span>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
               <p>
-                Yes, we ship worldwide. Shipping costs and delivery times vary
-                by destination. Free shipping is available for orders over $200.
+                Once your order ships, you'll receive a confirmation email with
+                a tracking number to track your package on our website or the
+                courier's site.
               </p>
             </div>
           </div>
@@ -549,16 +390,8 @@
           <div class="faq-item" data-category="returns">
             <button class="faq-question">
               <span>WHAT IS YOUR RETURN POLICY?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -572,16 +405,8 @@
           <div class="faq-item" data-category="returns">
             <button class="faq-question">
               <span>CAN I EXCHANGE FOR A DIFFERENT SIZE?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -595,16 +420,8 @@
           <div class="faq-item" data-category="returns">
             <button class="faq-question">
               <span>ARE SALE ITEMS REFUNDABLE?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -620,16 +437,8 @@
           <div class="faq-item" data-category="sizing">
             <button class="faq-question">
               <span>HOW DO I FIND MY SIZE?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -643,16 +452,8 @@
           <div class="faq-item" data-category="sizing">
             <button class="faq-question">
               <span>WHAT MATERIALS ARE YOUR PRODUCTS MADE FROM?</span>
-              <svg
-                class="faq-icon"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
+              <svg class="faq-icon" width="16" height="16">
+                <use href="#icon-chevron-down"></use>
               </svg>
             </button>
             <div class="faq-answer">
@@ -704,11 +505,13 @@
                 <input type="tel" placeholder="Phone Number*" />
               </div>
               <div class="form-field">
-                <select>
-                  <option value="">Select Subject*</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="support">Support</option>
-                  <option value="sales">Sales</option>
+                <select required>
+                  <option value="" disabled selected hidden>
+                    Select Subject*
+                  </option>
+                  <option value="general">General inquiry</option>
+                  <option value="job">Job Application</option>
+                  <option value="media">Media &amp; Press</option>
                 </select>
               </div>
             </div>
@@ -724,7 +527,15 @@
       </section>
 
       <!-- HOMEPAGE label — above About/footer -->
-      <div class="homepage-label">HOMEPAGE</div>
+      <a
+        href="#"
+        class="homepage-label"
+        onclick="
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return false;
+        "
+        >HOMEPAGE</a
+      >
 
       <!-- Footer -->
       <footer class="footer">
@@ -781,6 +592,17 @@
           </div>
         </div>
       </footer>
+    </div>
+
+    <!-- Editorial Overlay (triggered by spacebar) -->
+    <div class="editorial-overlay" id="editorialOverlay">
+      <div class="editorial-overlay-content">
+        <span class="submenu-title">EDITORIAL</span>
+        <a href="#" class="submenu-link">A.S.C</a>
+        <a href="#" class="submenu-link">BAZAAR</a>
+        <a href="#" class="submenu-link">ELLE</a>
+        <a href="#" class="submenu-link">GQ</a>
+      </div>
     </div>
 
     <script src="script.js"></script>

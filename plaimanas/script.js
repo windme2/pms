@@ -1,168 +1,171 @@
-document.addEventListener("DOMContentLoaded", function () {
-  /* ═══════════════════════════════════════
-     LANGUAGE TOGGLE (TH-THB ↔ US-USD)
-     ═══════════════════════════════════════ */
+document.addEventListener("DOMContentLoaded", () => {
+  // Main Initialization
+  initLanguageToggle();
+  initNavigation();
+  initStickyHeader();
+  initEditorialSubmenu();
+  initSpacebarLogic();
+  initCollectionHoverVideo();
+  initFAQSystem();
+  initInquiryForm();
+});
+
+/* ═══════════════════════════════════════
+   1. LANGUAGE TOGGLE (TH-THB ↔ US-USD)
+   ═══════════════════════════════════════ */
+function initLanguageToggle() {
   const langSelector = document.getElementById("langSelector");
   const langCurrent = document.getElementById("langCurrent");
+  if (!langSelector || !langCurrent) return;
 
-  document.querySelectorAll(".lang-option").forEach(function (opt) {
+  document.querySelectorAll(".lang-option").forEach((opt) => {
     opt.addEventListener("click", function (e) {
       e.stopPropagation();
       const currentText = langCurrent.textContent.trim();
       langCurrent.textContent = this.dataset.lang;
       this.dataset.lang = currentText;
       this.textContent = currentText;
+
+      langSelector.style.pointerEvents = "none";
+      setTimeout(() => (langSelector.style.pointerEvents = ""), 300);
     });
   });
+}
 
-  /* ═══════════════════════════════════════
-     HAMBURGER MENU (mobile nav toggle)
-     ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   2. NAVIGATION (Hamburger Menu)
+   ═══════════════════════════════════════ */
+function initNavigation() {
   const hamburger = document.getElementById("hamburger");
   const navMain = document.getElementById("navMain");
 
   if (hamburger && navMain) {
-    hamburger.addEventListener("click", function () {
+    hamburger.addEventListener("click", () => {
       navMain.classList.toggle("open");
       hamburger.classList.toggle("active");
     });
   }
+}
 
-  /* ═══════════════════════════════════════
-     STICKY HEADER — shadow on scroll
-     ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   3. STICKY HEADER (Shadow on scroll)
+   ═══════════════════════════════════════ */
+function initStickyHeader() {
   const header = document.getElementById("header");
+  if (!header) return;
 
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 10) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 10);
   });
+}
 
-  /* ═══════════════════════════════════════
-     EDITORIAL SUBMENU — align to button
-     ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   4. EDITORIAL SUBMENU (Align to button)
+   ═══════════════════════════════════════ */
+function initEditorialSubmenu() {
   const editorialBtn = document.getElementById("editorialBtn");
   const editorialSubmenu = document.getElementById("editorialSubmenu");
   const submenuContent = editorialSubmenu
     ? editorialSubmenu.querySelector(".submenu-content")
     : null;
 
-  function positionSubmenu() {
+  const positionSubmenu = () => {
     if (!editorialBtn || !submenuContent) return;
     const rect = editorialBtn.getBoundingClientRect();
+    submenuContent.style.position = "absolute";
     submenuContent.style.left = rect.left + "px";
-    submenuContent.style.transform = "none";
-  }
+    submenuContent.style.top = rect.top + "px";
+  };
 
   if (editorialBtn) {
     editorialBtn.addEventListener("mouseenter", positionSubmenu);
     window.addEventListener("resize", positionSubmenu);
     positionSubmenu();
   }
+}
 
-  /* ═══════════════════════════════════════
-     SPACEBAR LOGIC (Sequence: Zoom Out -> Editorial)
-     ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   5. SPACEBAR LOGIC (Zoom Out -> Editorial)
+   ═══════════════════════════════════════ */
+function initSpacebarLogic() {
   const logoWrapper = document.getElementById("logoWrapper");
   const editorialOverlay = document.getElementById("editorialOverlay");
-  let spaceStep = 0; // 0: Normal, 1: Zoomed Out, 2: Editorial Active
+  let logoZoomed = false;
 
-  document.addEventListener("keydown", function (e) {
-    // เช็คว่ากด Spacebar และไม่ได้กำลังพิมพ์อยู่ใน Input หรือ Select
-    if (
-      e.code === "Space" &&
-      e.target.tagName !== "INPUT" &&
-      e.target.tagName !== "TEXTAREA" &&
-      e.target.tagName !== "SELECT"
-    ) {
+  document.addEventListener("keydown", (e) => {
+    const isInput = ["INPUT", "TEXTAREA", "SELECT"].includes(e.target.tagName);
+    if (e.code === "Space" && !isInput) {
       e.preventDefault();
-      spaceStep++;
 
-      if (spaceStep === 1) {
-        // ขั้นที่ 1: ค่อยๆ ย่อโลโก้ (Zoom Out)
-        if (logoWrapper) logoWrapper.classList.add("zoomed-out");
-      } else if (spaceStep === 2) {
-        // ขั้นที่ 2: เปิดหน้า Editorial สีดำเต็มหน้าจอ
-        if (editorialOverlay) editorialOverlay.classList.add("active");
+      if (!logoZoomed) {
+        // First press: zoom out logo
+        logoWrapper?.classList.add("zoomed-out");
+        logoZoomed = true;
       } else {
-        // ขั้นที่ 3: Reset ทุกอย่างกลับมาเริ่มต้น
-        spaceStep = 0;
-        if (logoWrapper) logoWrapper.classList.remove("zoomed-out");
-        if (editorialOverlay) editorialOverlay.classList.remove("active");
+        // Subsequent presses: toggle editorial overlay
+        editorialOverlay?.classList.toggle("active");
       }
     }
   });
 
-  // คลิกที่หน้า Editorial เพื่อปิดและ Reset step
-  if (editorialOverlay) {
-    editorialOverlay.addEventListener("click", function () {
-      spaceStep = 0;
-      editorialOverlay.classList.remove("active");
-      if (logoWrapper) logoWrapper.classList.remove("zoomed-out");
+  editorialOverlay?.addEventListener("click", () => {
+    editorialOverlay.classList.remove("active");
+  });
+}
+
+/* ═══════════════════════════════════════
+   6. COLLECTION HOVER VIDEO
+   ═══════════════════════════════════════ */
+function initCollectionHoverVideo() {
+  document
+    .querySelectorAll(".collection-large, .collection-small")
+    .forEach((el) => {
+      const hoverVideo = el.querySelector(".collection-hover-media video");
+      if (!hoverVideo) return;
+
+      el.addEventListener("mouseenter", () => {
+        hoverVideo.currentTime = 0;
+        hoverVideo.play().catch(() => console.log("Video play interrupted"));
+      });
+
+      el.addEventListener("mouseleave", () => {
+        hoverVideo.pause();
+        hoverVideo.currentTime = 0;
+      });
     });
-  }
+}
 
-  /* ═══════════════════════════════════════
-     COLLECTION HOVER VIDEO
-     ═══════════════════════════════════════ */
-  const collectionLarge = document.querySelector(".collection-large");
-  if (collectionLarge) {
-    const hoverMedia = collectionLarge.querySelector(".collection-hover-media");
-    if (hoverMedia) {
-      const video = hoverMedia.querySelector("video");
-      collectionLarge.addEventListener("mouseenter", function () {
-        if (video)
-          video.play().catch((e) => console.log("Video play interrupted"));
-      });
-      collectionLarge.addEventListener("mouseleave", function () {
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      });
-    }
-  }
-
-  /* ═══════════════════════════════════════
-     FAQ TABS + ACCORDION
-     ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   7. FAQ TABS + ACCORDION
+   ═══════════════════════════════════════ */
+function initFAQSystem() {
   const faqBadges = document.querySelectorAll(".faq-badge");
   const faqItems = document.querySelectorAll(".faq-item");
+  if (faqItems.length === 0) return;
 
-  function filterFAQs(category) {
-    faqItems.forEach(function (item) {
+  const filterFAQs = (category) => {
+    faqItems.forEach((item) => {
       item.classList.remove("active");
-      if (item.dataset.category === category) {
-        item.classList.add("visible");
-      } else {
-        item.classList.remove("visible");
-      }
+      item.classList.toggle("visible", item.dataset.category === category);
     });
-  }
+  };
 
-  // เริ่มต้นด้วยหน้า Returns
-  if (faqItems.length > 0) filterFAQs("returns");
+  filterFAQs("returns");
 
-  faqBadges.forEach(function (badge) {
-    badge.addEventListener("click", function () {
-      faqBadges.forEach(function (b) {
-        b.classList.remove("active");
-      });
+  faqBadges.forEach((badge) => {
+    badge.addEventListener("click", () => {
+      faqBadges.forEach((b) => b.classList.remove("active"));
       badge.classList.add("active");
       filterFAQs(badge.dataset.tab);
     });
   });
 
-  faqItems.forEach(function (item) {
+  faqItems.forEach((item) => {
     const question = item.querySelector(".faq-question");
     if (question) {
-      question.addEventListener("click", function () {
+      question.addEventListener("click", () => {
         const isActive = item.classList.contains("active");
-        // ปิดอันอื่นในหมวดเดียวกัน
-        faqItems.forEach(function (other) {
+        faqItems.forEach((other) => {
           if (
             other !== item &&
             other.dataset.category === item.dataset.category
@@ -174,15 +177,17 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+}
 
-  /* ═══════════════════════════════════════
-     INQUIRY FORM
-     ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   8. INQUIRY FORM
+   ═══════════════════════════════════════ */
+function initInquiryForm() {
   const sendButton = document.querySelector(".send-button");
   if (sendButton) {
-    sendButton.addEventListener("click", function (e) {
+    sendButton.addEventListener("click", (e) => {
       e.preventDefault();
       alert("Thank you! Your inquiry has been sent.");
     });
   }
-});
+}

@@ -1,3 +1,8 @@
+:root {
+  --font-display: "Hanken Grotesk", Helvetica, sans-serif;
+  --max-content-width: 1092px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -63,6 +68,7 @@ body {
   font-size: 13px;
   color: black;
   white-space: nowrap;
+  min-width: 50px;
 }
 
 .chevron-down {
@@ -107,6 +113,7 @@ body {
   cursor: pointer;
   color: black;
   transition: all 0.15s;
+  white-space: nowrap;
 }
 
 .lang-option:hover {
@@ -116,8 +123,10 @@ body {
 /* Navigation */
 .nav-main {
   position: absolute;
-  left: 50%;
-  margin-left: -200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -154,13 +163,14 @@ body {
 /* Submenu (EDITORIAL) — hover triggered, full-screen dark dropdown */
 .submenu {
   position: fixed;
-  top: 45px;
+  top: 0;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 45px);
-  background: rgba(0, 0, 0, 0.95);
+  height: 100vh;
+  background: black;
   display: flex;
   flex-direction: column;
+  align-items: center;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
@@ -170,10 +180,8 @@ body {
 .submenu-content {
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 104px);
+  align-items: flex-start;
+  padding-top: 8px;
 }
 
 .nav-item.has-submenu:hover .submenu {
@@ -185,7 +193,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: white;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
 
@@ -203,6 +211,35 @@ body {
 .submenu-link:hover {
   color: white;
   transform: scale(1.08);
+}
+
+/* Editorial Overlay (Spacebar triggered) */
+.editorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.editorial-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.editorial-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
 }
 
 /* Header Right */
@@ -237,7 +274,7 @@ body {
    ═══════════════════════════════════════ */
 .logo-wrapper {
   position: sticky;
-  top: 45px;
+  top: 10px;
   z-index: 30;
   display: flex;
   justify-content: center;
@@ -250,7 +287,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 20px;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center center;
 }
@@ -266,12 +303,6 @@ body {
   display: block;
 }
 
-/* Shrunk state (spacebar toggle) */
-.logo-container.shrunk {
-  transform: scale(0.15);
-  padding: 8px 0;
-}
-
 /* Zoomed-out state (spacebar step 1) */
 .logo-wrapper.zoomed-out .logo-container {
   transform: scale(0.15);
@@ -284,14 +315,22 @@ body {
 .hero-section {
   position: relative;
   width: 100%;
-  margin-top: -200px;
+  margin-top: calc(-15.34% - 40px);
+  background: black;
 }
 
 .hero-media {
   width: 100%;
-  height: 844px;
-  object-fit: cover;
+  height: auto;
   display: block;
+}
+
+/* Hide browser video controls (PiP, Enhance) */
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel-container {
+  display: none !important;
 }
 
 /* ═══════════════════════════════════════
@@ -302,7 +341,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 0;
+  padding: 100px 0 80px;
 }
 
 .product-media-container {
@@ -338,7 +377,7 @@ body {
 .product-title {
   position: sticky;
   top: 50vh;
-  font-family: "Hanken Grotesk", Helvetica, sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   color: white;
   font-size: 80px;
@@ -355,6 +394,12 @@ body {
   align-items: center;
   gap: 14px;
   padding: 32px 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.text-section:hover {
+  opacity: 0.5;
 }
 
 .section-heading {
@@ -384,8 +429,8 @@ body {
 .collection-large {
   position: relative;
   width: 100%;
-  height: 475px;
-  margin-bottom: 60px;
+  height: 550px;
+  margin-bottom: 68px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -432,7 +477,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: "Hanken Grotesk", Helvetica, sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   color: white;
   font-size: 60px;
@@ -444,7 +489,7 @@ body {
 .collection-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
+  gap: 68px;
 }
 
 .collection-small {
@@ -468,20 +513,6 @@ body {
   opacity: 0;
 }
 
-.collection-small .collection-hover-media {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.collection-small .collection-hover-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
 .collection-small:hover .collection-hover-media {
   opacity: 1;
 }
@@ -495,7 +526,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: "Hanken Grotesk", Helvetica, sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   color: white;
   font-size: 40px;
@@ -511,32 +542,36 @@ body {
   width: 100%;
   background-color: black;
   overflow: hidden;
-  padding: 24px 0;
+  height: 85px;
+  display: flex;
+  align-items: center;
 }
 
 .carousel-track {
   display: flex;
-  animation: marquee 10s linear infinite;
+  animation: marquee 20s linear infinite;
 }
 
 .carousel-content {
   display: flex;
   align-items: center;
-  gap: 95px;
+  gap: 60px;
   white-space: nowrap;
   flex-shrink: 0;
+  padding: 0 30px;
 }
 
 .carousel-text {
-  font-family: "Hanken Grotesk", Helvetica, sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   color: white;
-  font-size: 60px;
+  font-size: 45px;
 }
 
 .carousel-arrow {
-  width: 85px;
-  height: 85px;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
 }
 
 @keyframes marquee {
@@ -553,7 +588,7 @@ body {
    ═══════════════════════════════════════ */
 .faq-cards-section {
   display: flex;
-  max-width: 1092px;
+  max-width: var(--max-content-width);
   margin: 0 auto;
   gap: 126px;
   padding: 80px 16px;
@@ -594,7 +629,7 @@ body {
 }
 
 .faq-header {
-  max-width: 1092px;
+  max-width: var(--max-content-width);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -604,7 +639,7 @@ body {
 }
 
 .faq-main-title {
-  font-family: "Hanken Grotesk", Helvetica, sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   color: white;
   font-size: 40px;
@@ -649,7 +684,7 @@ body {
 }
 
 .faq-accordion {
-  max-width: 1092px;
+  max-width: var(--max-content-width);
   width: 100%;
 }
 
@@ -715,7 +750,7 @@ body {
    ═══════════════════════════════════════ */
 .inquiry-section {
   display: flex;
-  max-width: 1092px;
+  max-width: var(--max-content-width);
   margin: 80px auto;
   gap: 74px;
   padding: 0 16px;
@@ -729,7 +764,7 @@ body {
 }
 
 .inquiry-title {
-  font-family: "Hanken Grotesk", Helvetica, sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   color: black;
   font-size: 40px;
@@ -774,6 +809,7 @@ body {
   width: 18px;
   height: 18px;
   cursor: pointer;
+  accent-color: black;
 }
 
 .form-row {
@@ -796,6 +832,26 @@ body {
   padding: 10px;
   font-size: 14px;
   background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-field select {
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='rgba(0,0,0,0.4)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+.form-field select:invalid,
+.form-field select option[disabled] {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.form-field select option {
+  color: black;
 }
 
 .form-field input:focus,
@@ -829,6 +885,7 @@ body {
   width: 17px;
   height: 17px;
   cursor: pointer;
+  accent-color: black;
 }
 
 .send-button {
@@ -853,11 +910,13 @@ body {
 .homepage-label {
   display: flex;
   align-items: center;
-  padding: 20px 60px;
-  font-size: 12px;
+  padding: 16px 30px 16px 155px;
+  font-size: 11px;
   color: black;
   letter-spacing: 2px;
   font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* ═══════════════════════════════════════
@@ -866,7 +925,8 @@ body {
 .footer {
   width: 100%;
   background-color: #f8f9f8;
-  padding: 32px 60px;
+  padding: 40px 30px 32px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .footer-content {
@@ -876,7 +936,7 @@ body {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
   gap: 32px;
   margin-bottom: 60px;
 }
@@ -1086,7 +1146,7 @@ body {
 
   /* Hero */
   .hero-section {
-    margin-top: -100px;
+    margin-top: calc(-15.34% - 24px);
   }
 
   .hero-media {
